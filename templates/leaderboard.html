@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Leaderboard
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Name</th>
+                <th class="text-start">Tasks Completed</th>
+            </tr>
+        </thead>
+    <tbody>
+            {% for row in lb %}
+                {% if row["id"] == me %}
+                    <tr class="me">
+                        <td class="text-start">{{row["username"]}} (YOU)</td>
+                {% else %}
+                    <tr>
+                        <td class="text-start">{{row["username"]}}</td>
+                {% endif %}
+                        <td class="text-start">{{row["tasks"]}}</td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

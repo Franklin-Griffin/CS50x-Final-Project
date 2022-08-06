@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit a Task
+{% endblock %}
+
+{% block main %}
+    <form action="/edit" method="post">
+        <!-- A hint as to which task to edit -->
+        <input type="text" value="{{task['task_id']}}" name="id" style="display:none">
+        {% if back %}
+            <button class="btn btn-primary" type="submit" name="back">Back</button>
+            <br><br>
+        {% endif %}
+        <h3>Editing task {{task['name']}}</h3>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" value="{{task['name']}}" type="text">
+            Due Date: <input type="datetime-local" name="due" value="{{task['due']}}">
+        </div>
+        <button class="btn btn-success" type="submit" name="save">Save Changes</button>
+        <br><br>
+        <button class="btn btn-primary" type="submit" name="complete">Complete</button>
+        <button class="btn btn-danger" type="submit" name="delete">Delete</button>
+    </form>
+{% endblock %}

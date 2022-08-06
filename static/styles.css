@@ -1,0 +1,40 @@
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red1
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+#red {
+    color: red;
+}
+.red {
+    background-color: red;
+}
+#green {
+    color: green;
+}
+.me {
+    background-color: green;
+}
+body {
+    background-color: #e9e9e9;
+}
+#hide {
+    border: none;
+    position: absolute;
+    right: 10px;
+}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" {% if cache == "" %} autofocus {% endif %} class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text" value="{{cache}}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" {% if not cache == "" %} autofocus {% endif %} id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <p id="red">*Your password must be 8 characters long, and contain a letter, a digit, and a special character</p>
+{% endblock %}

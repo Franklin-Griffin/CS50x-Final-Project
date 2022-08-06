@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit a Task
+{% endblock %}
+
+{% block main %}
+    {% if options|length == 0 %}
+        <h3>You have no tasks to edit!</h3>
+        <form action="/edit" method="post">
+            <button class="btn btn-primary" type="submit" name="create">Create One</button>
+        </form>
+    {% else %}
+        <h3>Select a task to edit</h3>
+        <form action="/edit" method="post">
+            <select name="task">
+                {% for option in options %}
+                    <option value="{{option['task_id']}}">{{option['name']}}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-primary" type="submit" name="select">Edit</button>
+        </form>
+    {% endif %}
+{% endblock %}

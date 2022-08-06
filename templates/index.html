@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+        {% if tasks|length != 0 %}
+
+            {% if tasks|length == 1 %}
+                <h5>You have 1 task to complete.</h5>
+            {% else %}
+                <h5>You have {{tasks|length}} tasks to complete.</h5>
+            {% endif %}
+
+            {% if overdue == 0 %}
+                <h3 id="green">You have no overdue tasks! Good work!</h3>
+            {% elif overdue == 1 %}
+                <h3 id="red">You have 1 overdue task.</h3>
+            {% else %}
+                <h3 id="red">You have {{overdue}} overdue tasks.</h3>
+            {% endif %}
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-start">Name</th>
+                        <th class="text-start">Due Date</th>
+                        <th class="text-start">Mark as Done</th>
+                        <th class="text-start">Delete/Mark as Failed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for row in tasks %}
+                            <tr>
+                                <td class="text-start">
+                                    <input autocomplete="off" class="form-control w-auto" name="nameof:{{row['task_id']}}" value="{{row['name']}}" type="text">
+                                </td>
+                                <td class="text-start">
+                                    {% if row["overdue"] %}
+                                        <input type="datetime-local" class="red" name="dueof:{{row['task_id']}}" value="{{row['due']}}">
+                                    {% else %}
+                                        <input type="datetime-local" name="dueof:{{row['task_id']}}" value="{{row['due']}}">
+                                    {% endif %}
+                                </td>
+                                <td class="text-start">
+                                    <input type="radio" class="form-check-input" name="deleteof:{{row['task_id']}}" value="done">
+                                </td>
+                                <td class="text-start">
+                                    <input type="radio" class="form-check-input" name="deleteof:{{row['task_id']}}" value="delete">
+                                </td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="border-0 text-end"></td>
+                        <td class="border-0 text-end"></td>
+                        <td class="border-0 text-end">
+                            <button class="btn btn-primary" type="submit" name="create">Create New Task</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <button class="btn btn-success" type="submit">Save Changes</button>
+
+        {% else %}
+            <h1>You have no tasks!</h1>
+            <button class="btn btn-primary" type="submit" name="create">Create one!</button>
+        {% endif %}
+    </form>
+{% endblock %}

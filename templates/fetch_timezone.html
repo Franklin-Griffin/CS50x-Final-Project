@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="/static/favicon.ico" rel="icon">
+        <title>Please wait...</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector("#a").value = (new Date().getTimezoneOffset());
+                document.querySelector("#b").submit();
+            });
+        </script>
+
+    </head>
+    <body>
+        <form id="b" action="/fetch_timezone" method="post">
+            <input id="a" name="offset" type="number" value="0" style="display: none">
+        </form>
+    </body>
+</html>
