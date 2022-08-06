@@ -8,7 +8,7 @@ $ flask run
 ```
 Then open a web browser and go to the link shown at `INFO:  * Running on _______`
 #### Description:
-Task Manager is my [CS50 Final Project.](https://cs50.harvard.edu/x/2022/project/) It is a Flask website to create, edit, and complete tasks, as well as compete with others. This project draws heavy influence from PSet9 (Finance) and PSet8 (Homepage). It uses HTML, CSS, Javascript, Flask, and Jinja to run. The structure is similar to PSet9, as it is Flask's standards. The project is simple in appearance but rich in quality-of-life features, security, and bug fixes.
+Task Manager is my [CS50 Final Project.](https://cs50.harvard.edu/x/2022/project/) It is a Flask application to create, edit, and complete tasks, as well as compete with others. This project draws heavy influence from PSet9 (Finance) and PSet8 (Homepage). It uses HTML, CSS, Javascript, Flask, and Jinja to run. The structure is similar to PSet9, as it is Flask's standards. The project is simple in appearance but rich in quality-of-life features, security, and bug fixes.
 
 The flask_session folder stores data about user sessions.
 The static folder contains a .ico file (the little image next to the title on a webpage) and the website's stylesheet.
