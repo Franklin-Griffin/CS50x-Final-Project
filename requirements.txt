@@ -1,7 +1,5 @@
 cs50
-flask
-flask-session
+Flask
+Flask-Session
 requests
 datetime
-werkzeug.security
-functools
