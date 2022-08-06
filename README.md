@@ -1,7 +1,14 @@
 # Task Manager
 #### Video Demo: https://www.youtube.com/watch?v=ZZMHx_vqP6I
+#### Running:
+Navigate to the code directory and execute the following commands
+```
+$ pip install -r requirements.txt
+$ flask run
+```
+Then open a web browser and go to the link shown at "INFO:  * Running on _______"
 #### Description:
-Task Manager is a Flask website to create, edit, and complete tasks, as well as compete with others. This project draws heavy influence from PSet9 (Finance) and PSet8 (Homepage). It uses HTML, CSS, Javascript, Flask, and Jinja to run. The structure is similar to PSet9, as it is Flask's standards. The project is simple in appearance but rich in quality-of-life features, security, and bug fixes.
+Task Manager is my [CS50 Final Project.](https://cs50.harvard.edu/x/2022/project/) It is a Flask website to create, edit, and complete tasks, as well as compete with others. This project draws heavy influence from PSet9 (Finance) and PSet8 (Homepage). It uses HTML, CSS, Javascript, Flask, and Jinja to run. The structure is similar to PSet9, as it is Flask's standards. The project is simple in appearance but rich in quality-of-life features, security, and bug fixes.
 
 The flask_session folder stores data about user sessions.
 The static folder contains a .ico file (the little image next to the title on a webpage) and the website's stylesheet.
@@ -30,5 +37,3 @@ In the index's POST, it first checks if the create button was pressed (using a s
 
 Finally the last route, edit. It uses GET, POST and two different render templates.
 On the initial GET, if there is only 1 task, it skips a step and goes straight to the edit template. Otherwise, it returns a select template in which the user can select a task to edit (if no tasks exist, feedback similar to the index is presented). After select.html is submitted via POST, the website detects it (based on the button name) and loads edit.html. This website allows changes to the task, as well as completion and deletion. After that, it is submitted to /edit again via POST, the button is detected, and edits are saved (with similar error checking in /create).
-
-I hope you enjoyed this slightly lengthy explanation, as well as my video and project :). This was CS50!
